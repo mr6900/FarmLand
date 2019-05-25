@@ -23,7 +23,8 @@ namespace FarmLand
         {
             Texture = newTexture;
 
-            size = new Vector2(graphics.Viewport.Width / 8, graphics.Viewport.Height / 30);
+            size = new Vector2(graphics.Viewport.Width / 12, graphics.Viewport.Height / 22);
+            //size = new Vector2(66, 36);
         }
 
         bool down;
@@ -39,12 +40,14 @@ namespace FarmLand
                 if (colour.A == 255) down = false;
                 if (colour.A == 0) down = true;
                 if (down) colour.A += 3; else colour.A -= 3;
-                if (mouse.LeftButton == ButtonState.Pressed) isClicked = true;
+                if (mouse.LeftButton == ButtonState.Pressed)
+                {
+                    isClicked = true;
+                }
             }
             else if (colour.A < 255)
             {
                 colour.A += 3;
-                isClicked = true;
             }
         }
 

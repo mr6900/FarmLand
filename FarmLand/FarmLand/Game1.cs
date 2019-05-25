@@ -12,9 +12,12 @@ namespace FarmLand
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        CharecterCreation CharecterCreation;
+
         enum GameState
         {
             MainMenu,
+            CharecterCreation,
             Options,
             Playing,
         }
@@ -24,6 +27,8 @@ namespace FarmLand
 
 
         cButton plyBtn;
+        cButton BckBtn;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -57,8 +62,10 @@ namespace FarmLand
             //graphics.IsFullScreen = true;
             IsMouseVisible = true;
 
-            plyBtn = new cButton(Content.Load<Texture2D>("Button"), graphics.GraphicsDevice);
+            plyBtn = new cButton(Content.Load<Texture2D>("StartButton"), graphics.GraphicsDevice);
             plyBtn.setPosition(new Vector2(350, 300));
+            BckBtn = new cButton(Content.Load<Texture2D>("BackButton"), graphics.GraphicsDevice);
+            BckBtn.setPosition(new Vector2(0, 0));
         }
 
         /// <summary>
@@ -86,7 +93,7 @@ namespace FarmLand
             switch (CurrentState)
             {
                 case GameState.MainMenu:
-                    if (plyBtn.isClicked == true) CurrentState = GameState.Playing;
+                    if (plyBtn.isClicked == true) CurrentState = GameState.CharecterCreation;
                     plyBtn.Update(mouse);
                     break;
                 case GameState.Options:
@@ -94,6 +101,10 @@ namespace FarmLand
                     break;
                 case GameState.Playing:
 
+                    break;
+                case GameState.CharecterCreation:
+                    if (BckBtn.isClicked == true) CurrentState = GameState.MainMenu;
+                    BckBtn.Update(mouse);
                     break;
             }
 
@@ -120,6 +131,10 @@ namespace FarmLand
                     break;
                 case GameState.Playing:
 
+                    break;
+                case GameState.CharecterCreation:
+                    spriteBatch.Draw(Content.Load<Texture2D>("CreationScreen"), new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                    BckBtn.Draw(spriteBatch);
                     break;
             }
             spriteBatch.End();
