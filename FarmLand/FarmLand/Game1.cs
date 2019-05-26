@@ -12,8 +12,6 @@ namespace FarmLand
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        CharecterCreation CharecterCreation;
-
         enum GameState
         {
             MainMenu,
@@ -93,8 +91,20 @@ namespace FarmLand
             switch (CurrentState)
             {
                 case GameState.MainMenu:
-                    if (plyBtn.isClicked == true) CurrentState = GameState.CharecterCreation;
+                    if (plyBtn.isClicked == true)
+                    {
+                        CurrentState = GameState.CharecterCreation;
+                        BckBtn.isClicked = false;
+                    }
                     plyBtn.Update(mouse);
+                    break;
+                case GameState.CharecterCreation:
+                    if (BckBtn.isClicked == true)
+                    {
+                        CurrentState = GameState.MainMenu;
+                        plyBtn.isClicked = false;
+                    }
+                    BckBtn.Update(mouse);
                     break;
                 case GameState.Options:
 
@@ -102,10 +112,7 @@ namespace FarmLand
                 case GameState.Playing:
 
                     break;
-                case GameState.CharecterCreation:
-                    if (BckBtn.isClicked == true) CurrentState = GameState.MainMenu;
-                    BckBtn.Update(mouse);
-                    break;
+                
             }
 
             base.Update(gameTime);
@@ -126,16 +133,17 @@ namespace FarmLand
                     spriteBatch.Draw(Content.Load<Texture2D>("MainMenu"), new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
                     plyBtn.Draw(spriteBatch);
                     break;
+                case GameState.CharecterCreation:
+                    spriteBatch.Draw(Content.Load<Texture2D>("CreationScreen"), new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                    BckBtn.Draw(spriteBatch);
+                    break;
                 case GameState.Options:
 
                     break;
                 case GameState.Playing:
 
                     break;
-                case GameState.CharecterCreation:
-                    spriteBatch.Draw(Content.Load<Texture2D>("CreationScreen"), new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
-                    BckBtn.Draw(spriteBatch);
-                    break;
+                
             }
             spriteBatch.End();
 
