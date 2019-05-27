@@ -23,8 +23,8 @@ namespace FarmLand
         {
             Texture = newTexture;
 
-            size = new Vector2(graphics.Viewport.Width / 12, graphics.Viewport.Height / 22);
-            //size = new Vector2(66, 36);
+            //size = new Vector2(graphics.Viewport.Width / 12, graphics.Viewport.Height / 22);
+            size = new Vector2(50, 50);
         }
 
         bool down;

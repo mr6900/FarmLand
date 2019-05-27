@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace FarmLand
 {
@@ -18,6 +19,7 @@ namespace FarmLand
             CharecterCreation,
             Options,
             Playing,
+            Load,
         }
         GameState CurrentState = GameState.MainMenu;
 
@@ -26,6 +28,10 @@ namespace FarmLand
 
         cButton plyBtn;
         cButton BckBtn;
+        cButton OptBtn;
+        cButton RandBtn;
+        cButton LdBtn;
+        Song song;
 
         public Game1()
         {
@@ -60,10 +66,16 @@ namespace FarmLand
             //graphics.IsFullScreen = true;
             IsMouseVisible = true;
 
-            plyBtn = new cButton(Content.Load<Texture2D>("StartButton"), graphics.GraphicsDevice);
+            RandBtn = new cButton(Content.Load<Texture2D>("RandomButton"), graphics.GraphicsDevice);
+            RandBtn.setPosition(new Vector2(100, 10));
+            OptBtn = new cButton(Content.Load<Texture2D>("Options"), graphics.GraphicsDevice);
+            OptBtn.setPosition(new Vector2(350, 350));
+            plyBtn = new cButton(Content.Load<Texture2D>("Start"), graphics.GraphicsDevice);
             plyBtn.setPosition(new Vector2(350, 300));
-            BckBtn = new cButton(Content.Load<Texture2D>("BackButton"), graphics.GraphicsDevice);
+            BckBtn = new cButton(Content.Load<Texture2D>("Back"), graphics.GraphicsDevice);
             BckBtn.setPosition(new Vector2(0, 0));
+
+            
         }
 
         /// <summary>
@@ -91,26 +103,49 @@ namespace FarmLand
             switch (CurrentState)
             {
                 case GameState.MainMenu:
+                    //Play Button
                     if (plyBtn.isClicked == true)
                     {
                         CurrentState = GameState.CharecterCreation;
                         BckBtn.isClicked = false;
                     }
+                    //Option Button
+                    if (OptBtn.isClicked == true)
+                    {
+                        CurrentState = GameState.Options;
+                        BckBtn.isClicked = false;
+                    }
+                    //Updates
+                    OptBtn.Update(mouse);
                     plyBtn.Update(mouse);
+                    BckBtn.Update(mouse);
                     break;
                 case GameState.CharecterCreation:
+                    //Back Buuton
                     if (BckBtn.isClicked == true)
                     {
                         CurrentState = GameState.MainMenu;
                         plyBtn.isClicked = false;
                     }
+                    //Updates
+                    RandBtn.Update(mouse);
                     BckBtn.Update(mouse);
                     break;
                 case GameState.Options:
-
+                    //Back Button
+                    if (BckBtn.isClicked == true)
+                    {
+                        CurrentState = GameState.MainMenu;
+                        plyBtn.isClicked = false;
+                        OptBtn.isClicked = false;
+                    }
+                    //Updates
+                    OptBtn.Update(mouse);
+                    plyBtn.Update(mouse);
+                    BckBtn.Update(mouse);
                     break;
                 case GameState.Playing:
-
+                    //Updates
                     break;
                 
             }
@@ -132,13 +167,15 @@ namespace FarmLand
                 case GameState.MainMenu:
                     spriteBatch.Draw(Content.Load<Texture2D>("MainMenu"), new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
                     plyBtn.Draw(spriteBatch);
+                    OptBtn.Draw(spriteBatch);
                     break;
                 case GameState.CharecterCreation:
                     spriteBatch.Draw(Content.Load<Texture2D>("CreationScreen"), new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                    RandBtn.Draw(spriteBatch);
                     BckBtn.Draw(spriteBatch);
                     break;
                 case GameState.Options:
-
+                    BckBtn.Draw(spriteBatch);
                     break;
                 case GameState.Playing:
 

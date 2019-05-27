@@ -5,9 +5,11 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/MainMenu.png</File>
-    <File>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/StartButton.png</File>
     <File>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/CreationScreen.png</File>
-    <File>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/BackButton.png</File>
-    <File>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/FarmLandTheme.mp3</File>
+    <File>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/RandomButton.png</File>
+    <File>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/Birds-in-evening-forest.mp3</File>
+    <File>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/Start.png</File>
+    <File>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/Back.png</File>
+    <File>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/Options.png</File>
   </SourceFiles>
 </SourceFileCollection>

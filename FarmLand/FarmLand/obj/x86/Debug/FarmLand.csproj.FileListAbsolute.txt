@@ -24,6 +24,10 @@ C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\obj\x86\Debu
 C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\obj\x86\Debug\FarmLand.exe
 C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\obj\x86\Debug\FarmLand.pdb
 C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\MainMenu.xnb
-C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\StartButton.xnb
 C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\CreationScreen.xnb
-C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\BackButton.xnb
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\RandomButton.xnb
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\Birds-in-evening-forest.wma
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\Birds-in-evening-forest.xnb
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\Start.xnb
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\Back.xnb
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\Options.xnb
