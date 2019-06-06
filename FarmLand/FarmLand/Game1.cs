@@ -71,11 +71,14 @@ namespace FarmLand
             OptBtn = new cButton(Content.Load<Texture2D>("Options"), graphics.GraphicsDevice);
             OptBtn.setPosition(new Vector2(350, 350));
             plyBtn = new cButton(Content.Load<Texture2D>("Start"), graphics.GraphicsDevice);
-            plyBtn.setPosition(new Vector2(350, 300));
+            plyBtn.setPosition(new Vector2(350, 250));
             BckBtn = new cButton(Content.Load<Texture2D>("Back"), graphics.GraphicsDevice);
             BckBtn.setPosition(new Vector2(0, 0));
+            LdBtn = new cButton(Content.Load<Texture2D>("Load"), graphics.GraphicsDevice);
+            LdBtn.setPosition(new Vector2(350, 300));
 
-            
+
+
         }
 
         /// <summary>
@@ -115,10 +118,17 @@ namespace FarmLand
                         CurrentState = GameState.Options;
                         BckBtn.isClicked = false;
                     }
+                    //Load Button
+                    if (LdBtn.isClicked == true)
+                    {
+                        CurrentState = GameState.Load;
+                        BckBtn.isClicked = false;
+                    }
                     //Updates
                     OptBtn.Update(mouse);
                     plyBtn.Update(mouse);
                     BckBtn.Update(mouse);
+                    LdBtn.Update(mouse);
                     break;
                 case GameState.CharecterCreation:
                     //Back Buuton
@@ -126,6 +136,7 @@ namespace FarmLand
                     {
                         CurrentState = GameState.MainMenu;
                         plyBtn.isClicked = false;
+                        LdBtn.isClicked = false;
                     }
                     //Updates
                     RandBtn.Update(mouse);
@@ -138,6 +149,7 @@ namespace FarmLand
                         CurrentState = GameState.MainMenu;
                         plyBtn.isClicked = false;
                         OptBtn.isClicked = false;
+                        LdBtn.isClicked = false;
                     }
                     //Updates
                     OptBtn.Update(mouse);
@@ -147,7 +159,17 @@ namespace FarmLand
                 case GameState.Playing:
                     //Updates
                     break;
-                
+                case GameState.Load:
+                    if (BckBtn.isClicked == true)
+                    {
+                        CurrentState = GameState.MainMenu;
+                        plyBtn.isClicked = false;
+                        LdBtn.isClicked = false;
+                    }
+                    BckBtn.Update(mouse);
+                    //Updates
+                    break;
+
             }
 
             base.Update(gameTime);
@@ -168,6 +190,7 @@ namespace FarmLand
                     spriteBatch.Draw(Content.Load<Texture2D>("MainMenu"), new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
                     plyBtn.Draw(spriteBatch);
                     OptBtn.Draw(spriteBatch);
+                    LdBtn.Draw(spriteBatch);
                     break;
                 case GameState.CharecterCreation:
                     spriteBatch.Draw(Content.Load<Texture2D>("CreationScreen"), new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
@@ -180,7 +203,10 @@ namespace FarmLand
                 case GameState.Playing:
 
                     break;
-                
+                case GameState.Load:
+                    BckBtn.Draw(spriteBatch);
+                    break;
+
             }
             spriteBatch.End();
 
