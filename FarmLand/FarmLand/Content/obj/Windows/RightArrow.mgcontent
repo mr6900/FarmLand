@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/CreationScreen.png</SourceFile>
-  <SourceTime>2019-06-06T13:16:23.1431529-04:00</SourceTime>
-  <DestFile>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/bin/Windows/CreationScreen.xnb</DestFile>
-  <DestTime>2019-06-07T13:56:20.2000983-04:00</DestTime>
+  <SourceFile>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/RightArrow.png</SourceFile>
+  <SourceTime>2019-06-07T13:55:32.9806966-04:00</SourceTime>
+  <DestFile>C:/Users/mattr/OneDrive/Documents/GitHub/FarmLand/FarmLand/FarmLand/Content/bin/Windows/RightArrow.xnb</DestFile>
+  <DestTime>2019-06-07T13:56:21.6704355-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
