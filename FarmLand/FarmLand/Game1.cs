@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Design;
+using System.Collections.Generic;
 
 namespace FarmLand
 {
@@ -33,11 +34,19 @@ namespace FarmLand
         cButton RandBtn;
         cButton LdBtn;
         Song song;
+        public Texture2D SlctTexRt;
+        public Texture2D SlctTexLft;
+        public List<Rectangle> SlctHitLft;
+        public List<Rectangle> SlctHitRt;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            SlctHitLft = new List<Rectangle>();
+            SlctHitRt = new List<Rectangle>();
+            SlctHitLft.Add(new Rectangle(195, 154, 15, 15));
+            SlctHitRt.Add(new Rectangle(293, 154, 15, 15));
         }
 
         /// <summary>
@@ -77,6 +86,8 @@ namespace FarmLand
             BckBtn.setPosition(new Vector2(0, 0));
             LdBtn = new cButton(Content.Load<Texture2D>("Load"), graphics.GraphicsDevice);
             LdBtn.setPosition(new Vector2(350, 300));
+            SlctTexRt = Content.Load<Texture2D>("RightArrow");
+            SlctTexLft = Content.Load <Texture2D>("LeftArrow");
 
 
 
@@ -195,6 +206,14 @@ namespace FarmLand
                     break;
                 case GameState.CharecterCreation:
                     spriteBatch.Draw(Content.Load<Texture2D>("CreationScreen"), new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                    for (int i = 0; i < SlctHitLft.Count; i++)
+                    {
+                        spriteBatch.Draw(SlctTexLft, SlctHitLft[i], Color.White);
+                    }
+                    for (int i = 0; i < SlctHitRt.Count; i++)
+                    {
+                        spriteBatch.Draw(SlctTexRt, SlctHitRt[i], Color.White);
+                    }
                     RandBtn.Draw(spriteBatch);
                     BckBtn.Draw(spriteBatch);
                     break;
