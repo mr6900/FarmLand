@@ -73,3 +73,7 @@ C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\
 C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\Load.xnb
 C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\LeftArrow.xnb
 C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\RightArrow.xnb
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\WalkRight.xnb
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\WalkLeft.xnb
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\WalkDown.xnb
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\WalkUp.xnb

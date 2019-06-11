@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
+using System.Diagnostics;
 
 namespace FarmLand
 {
@@ -40,13 +41,11 @@ namespace FarmLand
         /// </summary>
         /// <param name="currentTexture"></param>
         /// <param name="row"></param>
-        public void SetTexture(Texture2D currentTexture, int row, bool autoUpdate)
-        {
-            update = autoUpdate;
-            animation = currentTexture;
+        public void SetTexture(Texture2D currentTexture, int row)
+        {            animation = currentTexture;
             if (row >= rows)
             {
-                System.Diagnostics.Debug.Write("bad row index, for animated sprite");
+                Debug.Write("bad row index, for animated sprite");
             }
             rowindex = row;
         }
@@ -58,7 +57,6 @@ namespace FarmLand
         {
             colsindex = 0;
             movetexture();
-            update = false;
         }
         public void Update(GameTime gameTime, Rectangle drawRectangle)
         {
@@ -66,15 +64,10 @@ namespace FarmLand
             elapsed += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             if (elapsed >= delay)
             {
-                if (update)
-                {
-                    movetexture();
-                }
                 colsindex++;
                 if (colsindex >= cols)
                 {
                     colsindex = 0;
-                    update = false;
                 }
                 elapsed = 0;
             }

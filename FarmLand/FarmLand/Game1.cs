@@ -34,19 +34,14 @@ namespace FarmLand
         cButton RandBtn;
         cButton LdBtn;
         Song song;
-        public Texture2D SlctTexRt;
-        public Texture2D SlctTexLft;
-        public List<Rectangle> SlctHitLft;
-        public List<Rectangle> SlctHitRt;
+        Character character;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            SlctHitLft = new List<Rectangle>();
-            SlctHitRt = new List<Rectangle>();
-            SlctHitLft.Add(new Rectangle(195, 154, 15, 15));
-            SlctHitRt.Add(new Rectangle(293, 154, 15, 15));
+            character = new Character();
+
         }
 
         /// <summary>
@@ -86,8 +81,7 @@ namespace FarmLand
             BckBtn.setPosition(new Vector2(0, 0));
             LdBtn = new cButton(Content.Load<Texture2D>("Load"), graphics.GraphicsDevice);
             LdBtn.setPosition(new Vector2(350, 300));
-            SlctTexRt = Content.Load<Texture2D>("RightArrow");
-            SlctTexLft = Content.Load <Texture2D>("LeftArrow");
+            character.LoadContent(Content);
 
 
 
@@ -121,7 +115,7 @@ namespace FarmLand
                     //Play Button
                     if (plyBtn.isClicked == true)
                     {
-                        CurrentState = GameState.CharecterCreation;
+                        CurrentState = GameState.Playing;
                         BckBtn.isClicked = false;
                     }
                     //Option Button
@@ -169,6 +163,7 @@ namespace FarmLand
                     BckBtn.Update(mouse);
                     break;
                 case GameState.Playing:
+                    character.Update(gameTime);
                     //Updates
                     break;
                 case GameState.Load:
@@ -206,14 +201,6 @@ namespace FarmLand
                     break;
                 case GameState.CharecterCreation:
                     spriteBatch.Draw(Content.Load<Texture2D>("CreationScreen"), new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
-                    for (int i = 0; i < SlctHitLft.Count; i++)
-                    {
-                        spriteBatch.Draw(SlctTexLft, SlctHitLft[i], Color.White);
-                    }
-                    for (int i = 0; i < SlctHitRt.Count; i++)
-                    {
-                        spriteBatch.Draw(SlctTexRt, SlctHitRt[i], Color.White);
-                    }
                     RandBtn.Draw(spriteBatch);
                     BckBtn.Draw(spriteBatch);
                     break;
@@ -221,7 +208,7 @@ namespace FarmLand
                     BckBtn.Draw(spriteBatch);
                     break;
                 case GameState.Playing:
-
+                    character.Draw(spriteBatch);
                     break;
                 case GameState.Load:
                     BckBtn.Draw(spriteBatch);
