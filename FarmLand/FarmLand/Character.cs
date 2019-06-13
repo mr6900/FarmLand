@@ -25,7 +25,7 @@ namespace FarmLand
 
         public Character()
         {
-            hitbox = new Rectangle(0, 0, 25, 50);
+            hitbox = new Rectangle(0, 0, 24, 50);
             Speed = 3;
             someKeyPressed = false;
         }
