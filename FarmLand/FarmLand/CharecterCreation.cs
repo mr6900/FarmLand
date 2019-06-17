@@ -13,16 +13,14 @@ namespace FarmLand
 {
     class CharecterCreation
     {
-
-
-        public Texture2D SlctTexRt;
-        public Texture2D SlctTexLft;
-        public Rectangle SlctHitRt;
-        public Rectangle SlctHitLft;
+        
+        public Texture2D SlctPantsTexRt;
+        public Texture2D SlctPantsTexLft;
+        public Rectangle SlctPantsHitRt;
+        public Rectangle SlctPantsHitLft;
         Rectangle rectangle;
         Vector2 Position;
         public Vector2 size;
-
 
         PantsColor CurrentPants = PantsColor.Brown;
         ShirtColor CurrentShirt = ShirtColor.Blue;
@@ -52,18 +50,17 @@ namespace FarmLand
 
         public CharecterCreation()
         {
-            
-            
-            SlctHitLft = new Rectangle(195, 154, 15, 15);
-            SlctHitRt = new Rectangle(293, 154, 15, 15);
-            
+            SlctPantsHitLft = new Rectangle(195, 154, 15, 15);
+            SlctPantsHitRt = new Rectangle(293, 154, 15, 15);
         }
 
         public void LoadContent(ContentManager Content)
         {
+
+
+            SlctPantsTexRt = Content.Load<Texture2D>("RightArrow");
+            SlctPantsTexLft = Content.Load<Texture2D>("LeftArrow");
             
-            SlctTexRt = Content.Load<Texture2D>("RightArrow");
-            SlctTexLft = Content.Load<Texture2D>("LeftArrow");
 
         }
 
@@ -75,7 +72,9 @@ namespace FarmLand
             Rectangle mouseRectangle = new Rectangle(mouse.X, mouse.Y, 1, 1);
             rectangle = new Rectangle((int)Position.X, (int)Position.Y, (int)size.X, (int)size.Y);
 
-            if (mouseRectangle.Intersects(SlctHitRt))
+            
+            //Pants buttons
+            if (mouseRectangle.Intersects(SlctPantsHitRt))
             {
                 if (mouse.LeftButton == ButtonState.Pressed)
                 {
@@ -84,8 +83,7 @@ namespace FarmLand
                 }
                 
             }
-
-            if (mouseRectangle.Intersects(SlctHitLft))
+            if (mouseRectangle.Intersects(SlctPantsHitLft))
             {
                 if (mouse.LeftButton == ButtonState.Pressed)
                 {
@@ -142,8 +140,8 @@ namespace FarmLand
             }
 
 
-            spriteBatch.Draw(SlctTexLft, SlctHitLft, Color.White);
-            spriteBatch.Draw(SlctTexRt, SlctHitRt, Color.White);
+            spriteBatch.Draw(SlctPantsTexLft, SlctPantsHitLft, Color.White);
+            spriteBatch.Draw(SlctPantsTexRt, SlctPantsHitRt, Color.White);
         }
     }
 }

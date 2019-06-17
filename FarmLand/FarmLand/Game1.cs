@@ -33,6 +33,7 @@ namespace FarmLand
         cButton OptBtn;
         cButton RandBtn;
         cButton LdBtn;
+        cButton ContBtn;
         Song song;
         Character character;
         CharecterCreation CC;
@@ -83,6 +84,8 @@ namespace FarmLand
             BckBtn.setPosition(new Vector2(0, 0));
             LdBtn = new cButton(Content.Load<Texture2D>("Load"), graphics.GraphicsDevice);
             LdBtn.setPosition(new Vector2(350, 300));
+            ContBtn = new cButton(Content.Load<Texture2D>("ContinueBtn"), graphics.GraphicsDevice);
+            ContBtn.setPosition(new Vector2(610, 410));
             character.LoadContent(Content);
             CC.LoadContent(Content);
 
@@ -147,8 +150,14 @@ namespace FarmLand
                         plyBtn.isClicked = false;
                         LdBtn.isClicked = false;
                     }
+                    if(ContBtn.isClicked == true)
+                    {
+                        CurrentState = GameState.Playing;
+                    }
+                    
                     //Updates
                     CC.Update(mouse);
+                    ContBtn.Update(mouse);
                     RandBtn.Update(mouse);
                     BckBtn.Update(mouse);
                     break;
@@ -208,6 +217,7 @@ namespace FarmLand
                     RandBtn.Draw(spriteBatch);
                     BckBtn.Draw(spriteBatch);
                     CC.Draw(spriteBatch);
+                    ContBtn.Draw(spriteBatch);
                     break;
                 case GameState.Options:
                     BckBtn.Draw(spriteBatch);
