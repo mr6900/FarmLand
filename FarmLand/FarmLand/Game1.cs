@@ -152,6 +152,7 @@ namespace FarmLand
                     }
                     if(ContBtn.isClicked == true)
                     {
+                        CC.StreamWriter();
                         CurrentState = GameState.Playing;
                     }
                     
