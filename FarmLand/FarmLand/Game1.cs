@@ -37,6 +37,7 @@ namespace FarmLand
         Song song;
         Character character;
         CharecterCreation CC;
+        private Map myMap = new Map(32, 32, 10, 10);
 
         public Game1()
         {
@@ -178,6 +179,7 @@ namespace FarmLand
                     break;
                 case GameState.Playing:
                     character.Update(gameTime);
+                    myMap.Update(gameTime);
                     //Updates
                     break;
                 case GameState.Load:
@@ -225,6 +227,7 @@ namespace FarmLand
                     break;
                 case GameState.Playing:
                     character.Draw(spriteBatch);
+                    myMap.Draw(spriteBatch);
                     break;
                 case GameState.Load:
                     BckBtn.Draw(spriteBatch);

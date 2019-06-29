@@ -99,6 +99,8 @@ namespace FarmLand
 
 
         public bool isClicked;
+        public int Btn = 0;
+
 
         public void Update (MouseState mouse)
         {
@@ -113,16 +115,29 @@ namespace FarmLand
                 if (mouse.LeftButton == ButtonState.Pressed)
                 {
                     isClicked = true;
-                    Debug.WriteLine("Yes");
+
+                    Btn = Btn + 1;
+                    if (Btn == 6)
+                    {
+                        Btn = 0;
+                    }
+                    Debug.WriteLine(Btn);
                 }
                 
             }
+
+
             if (mouseRectangle.Intersects(SlctPantsHitLft))
             {
-                if (mouse.LeftButton == ButtonState.Pressed)
+                if (mouse.LeftButton == ButtonState.Released)
                 {
                     isClicked = true;
-                    Debug.WriteLine("No");
+
+                    Btn = Btn - 1;
+                    if (Btn == -1)
+                    {
+                        Btn = 5;
+                    }
                 }
 
             }

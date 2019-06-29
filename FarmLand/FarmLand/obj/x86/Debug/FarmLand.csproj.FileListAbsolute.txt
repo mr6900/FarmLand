@@ -78,3 +78,8 @@ C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\
 C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\WalkDown.xnb
 C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\WalkUp.xnb
 C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Content\ContinueBtn.xnb
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\MonoGame.Extended.dll
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Newtonsoft.Json.dll
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\MonoGame.Extended.pdb
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\MonoGame.Extended.xml
+C:\Users\mattr\OneDrive\Documents\GitHub\FarmLand\FarmLand\FarmLand\bin\Windows\x86\Debug\Newtonsoft.Json.xml
