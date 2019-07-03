@@ -17,17 +17,31 @@ namespace FarmLand
         private int width;
         private int height;
 
-        public Map(int pTileWidth, int pTileHeight, int pWidth, int pHeight)
+        private Camera2D camera;
+
+        public Camera2D Camera
+        {
+            get
+            {
+                return camera;
+            }
+        }
+
+        private GraphicsDevice device;
+
+        public Map(GraphicsDevice pDevice, int pTileWidth, int pTileHeight, int pWidth, int pHeight)
         {
             tileWidth = pTileWidth;
             tileHeight = pTileHeight;
             height = pHeight;
             width = pWidth;
+
+            camera = new Camera2D(pDevice);
         }
 
         public void Update(GameTime gameTime)
         {
-
+           
         }
 
 
@@ -36,13 +50,17 @@ namespace FarmLand
         {
             
             Vector2 tilePosition = Vector2.Zero;
+
             
 
+
+            //Drawing in tiles along x and y axis
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
                 {
-                    spriteBatch.FillRectangle(tilePosition, new Size2(tileWidth, tileHeight), Color.Black);
+                    spriteBatch.FillRectangle(tilePosition, new Size2(tileWidth, tileHeight), Color.White);
+                    spriteBatch.FillRectangle(tilePosition + new Vector2(1, 1) , new Size2(tileWidth - 2, tileHeight - 2), Color.Black);
                     tilePosition.Y += tileHeight;
                 }
 
@@ -51,6 +69,7 @@ namespace FarmLand
 
             }
             
+
         }
     }
 }

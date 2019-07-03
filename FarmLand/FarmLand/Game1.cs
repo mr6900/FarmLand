@@ -37,7 +37,9 @@ namespace FarmLand
         Song song;
         Character character;
         CharecterCreation CC;
-        private Map myMap = new Map(32, 32, 10, 10);
+        private Map myMap;
+        private bool someKeyPressed;
+        private int Speed;
 
         public Game1()
         {
@@ -45,7 +47,8 @@ namespace FarmLand
             Content.RootDirectory = "Content";
             character = new Character();
             CC = new CharecterCreation();
-
+            Speed = 3;
+            
         }
 
         /// <summary>
@@ -74,6 +77,8 @@ namespace FarmLand
             graphics.PreferredBackBufferHeight = screenHeight;
             //graphics.IsFullScreen = true;
             IsMouseVisible = true;
+
+            myMap = new Map(GraphicsDevice, 64, 32, 10, 10);
 
             RandBtn = new cButton(Content.Load<Texture2D>("RandomButton"), graphics.GraphicsDevice);
             RandBtn.setPosition(new Vector2(100, 10));
@@ -112,6 +117,8 @@ namespace FarmLand
         {
 
             MouseState mouse = Mouse.GetState();
+
+            KeyboardState ks = Keyboard.GetState();
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
@@ -180,8 +187,46 @@ namespace FarmLand
                 case GameState.Playing:
                     character.Update(gameTime);
                     myMap.Update(gameTime);
-                    //Updates
-                    break;
+
+
+                    if (ks.IsKeyDown(Keys.W))
+                    {
+                        for (int i = 0; i < Speed; i++)
+                        {
+                            myMap.Camera.Move(new Vector2(0,-1));
+                        }
+                        someKeyPressed = true;
+                    }
+                    if (ks.IsKeyDown(Keys.S))
+                    {
+                        for (int i = 0; i < Speed; i++)
+                        {
+                            myMap.Camera.Move(new Vector2(0, 1));
+                        }
+                        someKeyPressed = true;
+                    }
+                    if (ks.IsKeyDown(Keys.A))
+                    {
+                        for (int i = 0; i < Speed; i++)
+                        {
+                            myMap.Camera.Move(new Vector2(-1, 0));
+                        }
+                        someKeyPressed = true;
+                    }
+                    if (ks.IsKeyDown(Keys.D))
+                    {
+                        for (int i = 0; i < Speed; i++)
+                        {
+                            myMap.Camera.Move(new Vector2(1, 0));
+                        }
+                        someKeyPressed = true;
+                    }
+                    
+            
+
+
+            //Updates
+            break;
                 case GameState.Load:
                     if (BckBtn.isClicked == true)
                     {
@@ -206,7 +251,8 @@ namespace FarmLand
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(transformMatrix: myMap.Camera.GetViewMatrix());
+
             switch (CurrentState)
             {
                 case GameState.MainMenu:
@@ -226,14 +272,15 @@ namespace FarmLand
                     BckBtn.Draw(spriteBatch);
                     break;
                 case GameState.Playing:
-                    character.Draw(spriteBatch);
                     myMap.Draw(spriteBatch);
+                    character.Draw(spriteBatch);
                     break;
                 case GameState.Load:
                     BckBtn.Draw(spriteBatch);
                     break;
 
             }
+
             spriteBatch.End();
 
             base.Draw(gameTime);

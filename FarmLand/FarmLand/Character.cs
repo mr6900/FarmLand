@@ -25,7 +25,7 @@ namespace FarmLand
 
         public Character()
         {
-            hitbox = new Rectangle(0, 0, 24, 50);
+            hitbox = new Rectangle(400, 200, 24, 50);
             Speed = 3;
             someKeyPressed = false;
         }
@@ -102,6 +102,7 @@ namespace FarmLand
 
         public void Draw(SpriteBatch spritebatch)
         {
+
             animation.Draw(spritebatch);
         }
 

@@ -146,7 +146,7 @@ namespace FarmLand
 
         public void Draw (SpriteBatch spriteBatch)
         {
-
+            
 
             switch(CurrentPants)
             {
@@ -191,6 +191,7 @@ namespace FarmLand
 
             spriteBatch.Draw(SlctPantsTexLft, SlctPantsHitLft, Color.White);
             spriteBatch.Draw(SlctPantsTexRt, SlctPantsHitRt, Color.White);
+            
         }
     }
 }

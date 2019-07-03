@@ -58,6 +58,7 @@ namespace FarmLand
 
         public void Draw (SpriteBatch spriteBatch)
         {
+
             spriteBatch.Draw(Texture,rectangle,colour);
         }
     }
