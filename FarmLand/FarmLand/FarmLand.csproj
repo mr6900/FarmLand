@@ -47,6 +47,7 @@
     <Compile Include="CharecterCreation.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Map.cs" />
+    <Compile Include="Tiles.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="Playing.cs" />
     <Compile Include="Program.cs" />

@@ -61,6 +61,8 @@ namespace FarmLand
         {
             // TODO: Add your initialization logic here
 
+            myMap = new Map(GraphicsDevice);
+
             base.Initialize();
         }
 
@@ -78,8 +80,13 @@ namespace FarmLand
             //graphics.IsFullScreen = true;
             IsMouseVisible = true;
 
-            myMap = new Map(GraphicsDevice, 64, 32, 10, 10);
-
+            myMap.Generate(new int[,]{
+                {0,0,0,0,},
+                {0,1,0,0,},
+                {0,0,0,0,},
+                {0,0,0,0,},
+            }, 16);
+            
             RandBtn = new cButton(Content.Load<Texture2D>("RandomButton"), graphics.GraphicsDevice);
             RandBtn.setPosition(new Vector2(100, 10));
             OptBtn = new cButton(Content.Load<Texture2D>("Options"), graphics.GraphicsDevice);
@@ -94,6 +101,7 @@ namespace FarmLand
             ContBtn.setPosition(new Vector2(610, 410));
             character.LoadContent(Content);
             CC.LoadContent(Content);
+            Tiles.Content = Content;
 
 
 
@@ -186,7 +194,6 @@ namespace FarmLand
                     break;
                 case GameState.Playing:
                     character.Update(gameTime);
-                    myMap.Update(gameTime);
 
 
                     if (ks.IsKeyDown(Keys.W))
