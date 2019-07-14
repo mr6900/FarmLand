@@ -188,7 +188,7 @@
 /processorParam:TextureFormat=Color
 /build:ContinueBtn.png
 
-#begin Tile1.png
+#begin Tiles/Tile1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -198,5 +198,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Tile1.png
+/build:Tiles/Tile1.png
 

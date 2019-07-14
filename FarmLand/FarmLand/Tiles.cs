@@ -39,7 +39,7 @@ namespace FarmLand
     {
         public CollisionTiles(int i, Rectangle newRectangle)
         {
-            texture = Content.Load<Texture2D>("" + i);
+            texture = Content.Load<Texture2D>("Tiles/Tile" + i);
             this.Rectangle = newRectangle;
         }
     }
