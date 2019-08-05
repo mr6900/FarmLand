@@ -43,10 +43,10 @@ namespace FarmLand
             camera = new Camera2D(pDevice);
         }
         
-        public void Generate(int[,] map, int size)
+        public void Generate(int[,] map, int size, int Y, int X)
         {
-            for(int x = 0; x < map.GetLength(1); x++)
-                for(int y = 0; y < map.GetLength(0); y++)
+            for(int x = X; x < map.GetLength(1); x++)
+                for(int y = Y; y < map.GetLength(0); y++)
                 {
                     int number = map[y, x];
 

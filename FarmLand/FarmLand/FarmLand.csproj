@@ -46,6 +46,10 @@
     <Compile Include="Character.cs" />
     <Compile Include="CharecterCreation.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="InventorySlot.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ItemManager.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="RectangleHelper.cs" />
     <Compile Include="Tiles.cs" />
